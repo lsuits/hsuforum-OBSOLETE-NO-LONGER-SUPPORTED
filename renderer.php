@@ -182,7 +182,7 @@ class mod_hsuforum_renderer extends plugin_renderer_base {
         }
 
         $flaghtml = array();
-        $postname = format_string($post->name);
+        $postname = isset($post->name) ? format_string($post->name) : format_string($post->subject);
         foreach ($flaglib->get_flags() as $flag) {
             $isflagged = $flaglib->is_flagged($post->flags, $flag);
             $class = 'hsuforum_flag';
